@@ -186,3 +186,11 @@ footer nav ul {
 	margin: 2em
 }
 
+/** page de login **/
+.mdp-oublie {
+	font-family: 'Work Sans';
+	font-weight: 700;
+	font-size: 14px;
+	color: #1D6154;
+	margin-left: 38%;
+}
