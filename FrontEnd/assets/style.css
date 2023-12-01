@@ -129,16 +129,23 @@ li:hover {
 .filtres{
 	display: flex;
 	flex-direction: row;
-	margin-left: 10em;
+	justify-content: center;
+	margin-left : 6%;
 }
 
 .filtres__button {
 	color : #1D6154;
-	font-weight: 600;
+	font-weight: 700;
 	border-radius: 60px;
-	background: none;
+	background: white;
 	font-family: 'Work Sans';	
 	border: 1px solid #1D6154;
+	padding: 9px;
+	padding-left: 19px;
+	padding-right: 19px;
+	font-size: 16px;
+	margin-right: 2%;
+
 }
 
 .gallery {

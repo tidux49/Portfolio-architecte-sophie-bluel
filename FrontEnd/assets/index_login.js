@@ -128,7 +128,8 @@ btn_modifier.addEventListener("click", modal);
 btn_modal.addEventListener("click", next_modal);
 
 //fermeture des modals
-//femreture modal 1
+
+//femreture par clique exterieur
 
 hors_modal1.addEventListener("click",(e) => {
     if(e.target == add_modal){
@@ -141,6 +142,16 @@ hors_modal2.addEventListener("click",(e) => {
         sans_modal2();
     }
 });
+
+//fermeture par icone
+croix_modal1 = document.getElementById("fermeture_modal1");
+croix_modal2 = document.getElementById("fermeture_modal2");
+retour_modal2 = document.getElementById("retour_modal2");
+
+croix_modal1.addEventListener("click",sans_modal1);
+croix_modal2.addEventListener("click",sans_modal2);
+retour_modal2.addEventListener("click",modal);
+
 
 
 // partie ajouter une nouvelle photo, (new_photo = récup info + fetchpost)
