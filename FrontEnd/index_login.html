@@ -7,23 +7,31 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/9a18055146.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-	<!-- <script src="./index.js"></script> -->
+	<link rel="stylesheet" href="./assets/style-edit.css">
+	<!-- <script src="./index_login.js"></script> -->
 </head>
 <body>
 <header>
+	<div class="edition--background">
+		<i class="fa-solid fa-pen-to-square">  Mode edition</i>
+	</div>
+	<div class="nav-bar">
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li><a href="./index.html">Logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
+	</div>
 </header>
 <main>
+
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
@@ -36,14 +44,46 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-	</section class="filtres">
-		<button class="filtres__button" id="filtres__button--tous">Tous</button>
-		<button class="filtres__button" id="filtres__button--objets">Objets</button>
-		<button class="filtres__button" id="filtres__button--appartement">Appartements</button>
-		<button class="filtres__button" id="filtres__button--hotels">Hôtels & restaurants</button>
-		<div class="gallery" id="gallery"></div>
-	</section>
+		<div class="projet-title">
+			<h2>Mes Projets</h2>
+			<i class="fa-solid fa-pen-to-square" id="modification"> modifier</i>
+		</div>
+	<aside id="modal1" class="modal1 modale" aria-hidden="true" role="dialog" keyboard="true">
+		<div class="modal-content">
+			<h3>Galerie photo</h3>
+			<div class="modal_gallery" id="modal_gallery"></div>
+			<button class="modal_btn" id="modal_btn">Ajouter une photo</button>
+		</div>
+	</aside>
+		<aside id="modal2" class="modal2 modale" aria-hidden="true" role="dialog">
+			<div class="modal-content2">
+				<h3>Ajout photo</h3>
+				<form action="#" method="post" class="form_modal" id="form_modal">
+					
+					<div class="form-photo">
+						<i class="fa-regular fa-image"></i>
+						<p class="form-photo_p">jpg, png : 4mo max</p>
+						<label for="photo" class="photo_label">+ Ajouter une photo</label>
+						<input type="file" name="photo" id="photo" class="button_photo">
+					</div>
+				
+					<label for="text">Titre</label>
+					<input type="text" name="Titre" id="Titre">
+					<label for="select">Catégorie</label>
+					<select id="categorie" name="categorie">
+						<option value="1">Objets</option>
+						<option value="2">Appartements</option>
+						<option value="3">Hotels & restaurants</option>
+					</select>
+					<input type="submit" value="Envoyer" id="modal2_btn" class="modal_btn">
+				</form>
+
+			</div>
+		</aside>
+	
+
+	<div class="gallery" id="gallery"></div>
+
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
@@ -66,7 +106,8 @@
 		</ul>
 	</nav>
 </footer>
-<script src="./index.js"></script>
+
 
 </body>
+<script src="./assets/index_login.js"></script>
 </html>
