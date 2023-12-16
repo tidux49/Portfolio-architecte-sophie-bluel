@@ -107,7 +107,7 @@ function modal(){
     add_modal.style.display = "block";
     add_modal.style.zIndex = 1;
     hors_modal1.style.zIndex= 0;
-    modal2.style.display = "none";
+    ferme_modal2();
 
 }
 function next_modal(){
@@ -120,8 +120,25 @@ function sans_modal1(){
 }
 function sans_modal2(){
     reset_modal2();
-    modal2.style.display = "none";
+    ferme_modal2();
 }
+function ferme_modal2(){
+    modal2.style.display = "none";
+    reset_preview_image();
+}
+
+function reset_preview_image(){
+    let fa_image = document.querySelector(".fa-image");
+    let photo_label = document.querySelector(".photo_label");
+    let image_remove = document.getElementById("image_selection");
+    if (fa_image.style.display == "none"){
+        image_remove.remove();
+        fa_image.style.display = "block";
+        photo_label.style.display = "block";}
+    document.getElementById("form_modal").reset();   
+
+}
+
 //fin appartion des modals
 fetchget();
 btn_modifier.addEventListener("click", modal);
@@ -139,7 +156,7 @@ hors_modal1.addEventListener("click",(e) => {
 
 hors_modal2.addEventListener("click",(e) => {
     if(e.target == modal2){
-        sans_modal2();
+        ferme_modal2();
     }
 });
 
@@ -149,7 +166,7 @@ croix_modal2 = document.getElementById("fermeture_modal2");
 retour_modal2 = document.getElementById("retour_modal2");
 
 croix_modal1.addEventListener("click",sans_modal1);
-croix_modal2.addEventListener("click",sans_modal2);
+croix_modal2.addEventListener("click",ferme_modal2);
 retour_modal2.addEventListener("click",modal);
 
 
@@ -160,6 +177,7 @@ retour_modal2.addEventListener("click",modal);
 const image_pré_ajout = document.querySelector("[name=photo]");
 function affichage_image(){
 let image_selection = document.createElement("img");
+image_selection.id = "image_selection";
 image_selection.className = "image_preview";
 console.log(image_pré_ajout.files[0]);
 let file_data = image_pré_ajout.files[0];
@@ -175,10 +193,9 @@ if (file_data) {
     reader.readAsDataURL(file_data);}
 let fa_image = document.querySelector(".fa-image");
 let photo_label = document.querySelector(".photo_label");
-let form_photo_p = document.querySelector(".form-photo_p"); 
 fa_image.style.display = "none";
 photo_label.style.display = "none";
-form_photo_p.style.display = "none";
+// form_photo_p.style.display = "none";
 const form_photo = document.querySelector(".form-photo");
 form_photo.appendChild(image_selection);
 }
@@ -244,10 +261,27 @@ async function new_photo(event) {
 
     //console.log(ResponseJson);
 }
+function unlock_btn(){
+    const title= document.querySelector("[name=Titre]").value;
+    const image= document.querySelector("[name=photo]").files[0];
+    const categoryId= document.querySelector("[name=categorie]").value;
+
+    const unlock_btn = document.getElementById("modal2_btn");
+    
+    if(title != null & image != null & categoryId != null){
+        unlock_btn.style.background = "#1D6154";
+    }
+    else{
+        unlock_btn.style.background = "grey";
+    }
+}
+
+formul.addEventListener("change", unlock_btn);
 
 formul.addEventListener("submit", async function (event) {
     event.preventDefault();
-    await new_photo(event)
+    await new_photo(event);
+    sans_modal2();
 })
 
 
