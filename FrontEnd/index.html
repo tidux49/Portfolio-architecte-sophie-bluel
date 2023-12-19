@@ -7,21 +7,28 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/9a18055146.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<!-- <script src="./index.js"></script> -->
+	<!-- <script src="./assets/index_login.js"></script> -->
 </head>
 <body>
 <header>
+	<div class="edition--background" id="barre_noir">
+		<i class="fa-solid fa-pen-to-square"></i>
+		<p>Mode edition</p>
+	</div>
+	<div class="ligne_liens">
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li><a href="./login.html">Login</a></li>
+			<li><a href="#" id="login_logout">Login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
+</div>
 </header>
 <main>
 	<section id="introduction">
@@ -36,7 +43,11 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="projet-title">
+			<h2>Mes Projets</h2>
+			<i class="fa-solid fa-pen-to-square" id="modification"></i>
+			<p id="modification_p">modifier</p>
+		</div>
 	<div class="filtres">
 		<button class="filtres__button" id="filtres__button--tous">Tous</button>
 		<button class="filtres__button" id="filtres__button--objets">Objets</button>
@@ -44,7 +55,45 @@
 		<button class="filtres__button" id="filtres__button--hotels">Hôtels & restaurants</button>
 	</div>
 </section>	
+<aside id="modal1" class="modal1 modale" aria-hidden="true" role="dialog" keyboard="true">
+	<div class="modal-content">
+		<i class="fa-solid fa-xmark croix1" id="fermeture_modal1"></i>
+		<h1 class="titre_modal">Galerie photo</h1>
+		<div class="modal_gallery" id="modal_gallery"></div>
+		<button class="modal_btn" id="modal_btn">Ajouter une photo</button>
+	</div>
+</aside>
+	<aside id="modal2" class="modal2 modale" aria-hidden="true" role="dialog">
+		<div class="modal-content2">
+			<div class="header_modal2">
+				<i class="fa-solid fa-arrow-left" id="retour_modal2"></i>
+				<i class="fa-solid fa-xmark croix2" id="fermeture_modal2"></i>
+			</div>
+			<h1 class="titre_modal">Ajout photo</h1>
+			<form action="#" method="post" class="form_modal" id="form_modal">
+				
+				<div class="form-photo">
+					<i class="fa-regular fa-image"></i>
+					<label for="photo" class="photo_label">+ Ajouter une photo</label>
+					<input type="file" name="photo" id="photo" class="button_photo">
+				</div>
+			
+				<label for="text">Titre</label>
+				<input type="text" name="Titre" id="Titre">
+				<label for="select">Catégorie</label>
+				<select id="categorie" name="categorie">
+					<option value="1">Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hotels & restaurants</option>
+				</select>
+				<input type="submit" value="Envoyer" id="modal2_btn" class="modal_btn">
+			</form>
+
+		</div>
+	</aside>
+
 	<div class="gallery" id="gallery"></div>
+
 	
 	<section id="contact">
 		<h2>Contact</h2>
@@ -68,7 +117,7 @@
 		</ul>
 	</nav>
 </footer>
-<script src="./index.js"></script>
+<script src="./assets/index_login.js"></script>
 
 </body>
 </html>

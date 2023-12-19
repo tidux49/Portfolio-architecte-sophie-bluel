@@ -26,16 +26,22 @@ async function login(event) {
     const loginResJson = await loginRes.json()
 
     if (loginResJson.token) {
-        console.log("enfin le TOKEN" + loginResJson.token);
+       // console.log("enfin le TOKEN" + loginResJson.token);
         window.localStorage.setItem("token", loginResJson.token);
-        document.location.href = "index_login.html";
+        window.localStorage.setItem("connecte", 1);
+
+        document.location.href = "index.html";
     } 
     else if (loginResJson.status == 400) {
         alert("Merci de remplir tous les champs");
+        window.localStorage.setItem("connecte", 0);
     } else if (loginResJson.status == 500) {
-        alert("Erreur serveur");} 
+        alert("Erreur serveur");
+        window.localStorage.setItem("connecte", 0);
+    } 
     else{
         alert("Identifiant ou mot de passe incorrect");
+        window.localStorage.setItem("connecte", 0);
     }
     }
 
